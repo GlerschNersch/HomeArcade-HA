@@ -7,16 +7,14 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { IntegrationProvider, useIntegration } from "@/lib/integration";
 import { parseFilter, parseCollectionFilter, DEFAULT_FILTER } from "@/lib/filter";
-import { MobileBottomNav } from "@/components/MobileNav";
-import i18n from "./lib/i18n";
 import { useTranslation } from "react-i18next";
 import Home from "@/pages/Home";
 import { ProfileProvider } from "@/lib/useProfile";
 import Dashboard from "@/pages/Dashboard";
 import NotFound from "@/pages/not-found";
 import { THEMES, AppTheme } from "./lib/themes";
-import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
-import { Sidebar } from "@/components/Sidebar";
+import { SidebarLayout } from "@/components/SidebarLayout";
+
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 /**
@@ -164,23 +162,17 @@ function App() {
         <ProfileProvider>
         <IntegrationProvider>
           <VisualEffectManager />
-        <LanguageManager />
-        <ScrollRestoration />
+          <LanguageManager />
+          <ScrollRestoration />
           <TooltipProvider>
-            <SidebarProvider>
-              <Toaster />
-              <Router hook={useHashLocation}>
-                <div className="h-dvh min-h-dvh flex w-full overflow-hidden">
-                  <Sidebar />
-                  <SidebarInset className="flex flex-col min-h-0 overflow-hidden">
-                    <PageTransition>
-                      <AppRouter />
-                    </PageTransition>
-                    <MobileBottomNav />
-                  </SidebarInset>
-                </div>
-              </Router>
-            </SidebarProvider>
+            <Toaster />
+            <Router hook={useHashLocation}>
+              <SidebarLayout>
+                <PageTransition>
+                  <AppRouter />
+                </PageTransition>
+              </SidebarLayout>
+            </Router>
           </TooltipProvider>
         </IntegrationProvider>
         </ProfileProvider>

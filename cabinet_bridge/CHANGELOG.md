@@ -1,3 +1,10 @@
+## 2.24.81 – 2026-05-19
+
+- **Major**: **New Application Shell** — Integrated a modern, dark sidebar with a sticky header for better navigation.
+- **Improved**: **Navigation** — Consistent sidebar access for mobile (drawer) and desktop, including Systems, Collections, and Library filters.
+- **New**: **Global Header** — Added a persistent header with search, notifications, and an integrated profile switcher.
+- **Tech**: **Headless UI & Heroicons** — Transitioned core layout components to Headless UI for improved accessibility and modern iconography.
+
 ## 1.1.14 – 2026-05-15
 
 - **Major**: **Full Localization Support** — Replaced all hardcoded English strings with dynamic translation keys across the entire application.
